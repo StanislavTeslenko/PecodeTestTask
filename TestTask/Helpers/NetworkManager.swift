@@ -9,8 +9,8 @@ import UIKit
 
 class NetworkManager {
     
-    //Another key - "d77f58ad0b7544e8bb6bdc47fc6ad937"
-    private let APIKey = "9a0f08d7c34f42e387fea43ef812959e"
+    //Another keys - "d77f58ad0b7544e8bb6bdc47fc6ad937", "9a0f08d7c34f42e387fea43ef812959e"
+    private let APIKey = "fadc0496436e42c49ef67819d731ecfc"
     
     private var pageNumber: Int = 1
     private var regionCode: String = "us"
