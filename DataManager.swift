@@ -39,6 +39,11 @@ class DataManager {
         }
     }
     
+    func reloadData(from country: String) {
+        networkManager.setCountry(country: country)
+        loadFirstPage()
+    }
+    
     private func processData(from model: HotNewsModel?) {
         
         guard let articles = model?.articles else {return}

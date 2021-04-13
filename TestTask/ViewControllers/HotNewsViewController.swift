@@ -16,24 +16,35 @@ class HotNewsViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Register cell
+        tableView.register(UINib(nibName: "HotNewsCell", bundle: nil), forCellReuseIdentifier: "HotNewsCell")
+        
+        // Set AutomaticDimension for cell
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
+        
+        // Clear TableView footer
         tableView.tableFooterView = UIView()
         
+        // Create RefreshControl
         tableView.refreshControl = refreshControl
         refreshControl.beginRefreshing()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
+        // Create Datamanager delegate and send command to load data from network
         DataManager.shared.delegate = self
         DataManager.shared.loadFirstPage()
-        
     }
     
-    @objc func refresh() {
+    // RefreshControl action
+    @objc private func refresh() {
         DataManager.shared.loadFirstPage()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
+    // Network data loaded (DataManagerDelegate)
     func dataReady() {
         DispatchQueue.main.async {
             self.refreshControl.endRefreshing()
@@ -41,59 +52,58 @@ class HotNewsViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    private func loadNextPage() {
+        refreshControl.beginRefreshing()
+        DataManager.shared.loadNextPage()
+    }
+    
+    // MARK: - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DataManager.shared.cellModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HotNewsCell", for: indexPath)
-
-        cell.textLabel?.text = DataManager.shared.cellModel[indexPath.row].source
-        
-        if indexPath.row == DataManager.shared.cellModel.count - 2 {
-            refreshControl.beginRefreshing()
-            DataManager.shared.loadNextPage()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HotNewsCell", for: indexPath) as? HotNewsCell else {
+            fatalError("Error dequeuing cell")
         }
+        
+        let cellModel = DataManager.shared.cellModel[indexPath.row]
+        cell.configure(with: cellModel)
+        
+        // Load next page from network if table scrolling down
+        if indexPath.row == DataManager.shared.cellModel.count - 2 {
+            loadNextPage()
+        }
+        
+        // Force update cell layout
+        cell.layoutIfNeeded()
 
         return cell
     }
     
-//    let cellMarginSize :CGFloat  = 4.0
-//    func tableView(_ tableView: UITableView,
-//             estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//       // Choose an appropriate default cell size.
-//       var cellSize = UITableView.automaticDimension
-//
-//       // The first cell is always a title cell. Other cells use the Basic style.
-//       if indexPath.row == 0 {
-//          //Title cells consist of one large title row and two body text rows.
-//          let largeTitleFont = UIFont.preferredFont(forTextStyle: .largeTitle)
-//          let bodyFont = UIFont.preferredFont(forTextStyle: .body)
-//
-//          // Get the height of a single line of text in each font.
-//          let largeTitleHeight = largeTitleFont.lineHeight + largeTitleFont.leading
-//          let bodyHeight = bodyFont.lineHeight + bodyFont.leading
-//
-//          // Sum the line heights plus top and bottom margins to get the final height.
-//          let titleCellSize = largeTitleHeight + (bodyHeight * 2.0) + (cellMarginSize * 2)
-//
-//          // Update the estimated cell size.
-//          cellSize = titleCellSize
-//       }
-//
-//       return cellSize
-//    }
+    // MARK: - UITableViewDelegate
     
-    /*
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        guard let urlString = DataManager.shared.cellModel[indexPath.row].url else {return}
+        performSegue(withIdentifier: "DetailsViewControllerSegue", sender: urlString)
+    }
+    
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        guard segue.identifier == "DetailsViewControllerSegue" else {return}
+        
+        let destination = segue.destination as! DetailsViewController
+        destination.urlString = sender as! String
     }
-    */
+    
 
 
 }

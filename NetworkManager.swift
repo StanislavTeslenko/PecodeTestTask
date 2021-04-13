@@ -9,7 +9,7 @@ import UIKit
 
 class NetworkManager {
     
-    private let APIKey = "d77f58ad0b7544e8bb6bdc47fc6ad937"
+    private let APIKey = "9a0f08d7c34f42e387fea43ef812959e"//"d77f58ad0b7544e8bb6bdc47fc6ad937"
     
     private var pageNumber: Int = 1
     private var regionCode: String = "us"
@@ -23,6 +23,10 @@ class NetworkManager {
     enum Pages {
         case firstPage
         case nextPage
+    }
+    
+    func setCountry(country: String) {
+        regionCode = country
     }
     
     private func createUrl() -> URL? {

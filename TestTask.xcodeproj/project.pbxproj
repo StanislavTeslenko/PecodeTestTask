@@ -17,6 +17,10 @@
 		04ED10842624C000004F57ED /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED10832624C000004F57ED /* DataManager.swift */; };
 		04ED10872624C03B004F57ED /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED10862624C03B004F57ED /* CellModel.swift */; };
 		04ED108B2624C4A4004F57ED /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED108A2624C4A4004F57ED /* ImageManager.swift */; };
+		04ED109226256309004F57ED /* HotNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED109026256309004F57ED /* HotNewsCell.swift */; };
+		04ED109326256309004F57ED /* HotNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ED109126256309004F57ED /* HotNewsCell.xib */; };
+		04ED109626257D96004F57ED /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED109526257D96004F57ED /* DetailsViewController.swift */; };
+		04ED109A2625CD15004F57ED /* NewsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED10992625CD15004F57ED /* NewsSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		04ED10832624C000004F57ED /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		04ED10862624C03B004F57ED /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 		04ED108A2624C4A4004F57ED /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		04ED109026256309004F57ED /* HotNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsCell.swift; sourceTree = "<group>"; };
+		04ED109126256309004F57ED /* HotNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotNewsCell.xib; sourceTree = "<group>"; };
+		04ED109526257D96004F57ED /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		04ED10992625CD15004F57ED /* NewsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +56,7 @@
 		04E05A8D26246F30006A1131 = {
 			isa = PBXGroup;
 			children = (
+				04ED10992625CD15004F57ED /* NewsSettingsViewController.swift */,
 				04ED10832624C000004F57ED /* DataManager.swift */,
 				04E05ACC2624948C006A1131 /* NetworkManager.swift */,
 				04ED108A2624C4A4004F57ED /* ImageManager.swift */,
@@ -108,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				04E05A9D26246F31006A1131 /* HotNewsViewController.swift */,
+				04ED109526257D96004F57ED /* DetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +125,7 @@
 		04E05AB52624707F006A1131 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04ED108F262562DE004F57ED /* HotNewsCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -133,6 +144,15 @@
 			children = (
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		04ED108F262562DE004F57ED /* HotNewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				04ED109026256309004F57ED /* HotNewsCell.swift */,
+				04ED109126256309004F57ED /* HotNewsCell.xib */,
+			);
+			path = HotNewsCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04ED109326256309004F57ED /* HotNewsCell.xib in Resources */,
 				04E05AA626246F35006A1131 /* LaunchScreen.storyboard in Resources */,
 				04E05AA326246F35006A1131 /* Assets.xcassets in Resources */,
 				04E05AA126246F31006A1131 /* Main.storyboard in Resources */,
@@ -206,9 +227,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E05ACD2624948C006A1131 /* NetworkManager.swift in Sources */,
+				04ED109A2625CD15004F57ED /* NewsSettingsViewController.swift in Sources */,
 				04ED10842624C000004F57ED /* DataManager.swift in Sources */,
+				04ED109626257D96004F57ED /* DetailsViewController.swift in Sources */,
 				04ED108B2624C4A4004F57ED /* ImageManager.swift in Sources */,
 				04E05A9E26246F31006A1131 /* HotNewsViewController.swift in Sources */,
+				04ED109226256309004F57ED /* HotNewsCell.swift in Sources */,
 				04ED10802624A3D3004F57ED /* NetworkModel.swift in Sources */,
 				04E05A9A26246F31006A1131 /* AppDelegate.swift in Sources */,
 				04ED10872624C03B004F57ED /* CellModel.swift in Sources */,
