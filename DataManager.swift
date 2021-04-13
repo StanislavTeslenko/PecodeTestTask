@@ -39,9 +39,13 @@ class DataManager {
         }
     }
     
-    func reloadData(from country: String) {
-        networkManager.setCountry(country: country)
+    func reloadData(from country: String, category: String) {
+        networkManager.setRequestParameters(country: country, category: category)
         loadFirstPage()
+    }
+    
+    func getRequestParameters() -> (country: String, category: String) {
+        return networkManager.getRequestParameters()
     }
     
     private func processData(from model: HotNewsModel?) {

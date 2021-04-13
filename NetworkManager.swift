@@ -13,11 +13,12 @@ class NetworkManager {
     
     private var pageNumber: Int = 1
     private var regionCode: String = "us"
+    private var category: String = "general"
     
     init() {
         // Get current phone Country Code
         let locale = Locale.current
-        regionCode = locale.regionCode ?? "us"
+        regionCode = locale.regionCode?.lowercased() ?? "us"
     }
     
     enum Pages {
@@ -25,8 +26,13 @@ class NetworkManager {
         case nextPage
     }
     
-    func setCountry(country: String) {
-        regionCode = country
+    func setRequestParameters(country: String, category: String) {
+        self.regionCode = country
+        self.category = category
+    }
+    
+    func getRequestParameters() -> (country: String, category: String) {
+        return (regionCode, category)
     }
     
     private func createUrl() -> URL? {
@@ -37,11 +43,12 @@ class NetworkManager {
         components.host = "newsapi.org"
         components.path = "/v2/top-headlines"
         
-        let queryCountry = URLQueryItem(name: "country", value: regionCode.lowercased())
+        let queryCountry = URLQueryItem(name: "country", value: regionCode)
+        let queryCathegory = URLQueryItem(name: "category", value: category)
         let queryPageSize = URLQueryItem(name: "pageSize", value: "10")
         let queryPage = URLQueryItem(name: "page", value: String(pageNumber))
         
-        components.queryItems = [queryCountry, queryPageSize , queryPage]
+        components.queryItems = [queryCountry, queryCathegory, queryPageSize , queryPage]
         
         return components.url
     }

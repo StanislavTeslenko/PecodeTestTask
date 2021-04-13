@@ -176,7 +176,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cathegoryPicker" destination="ya3-Li-STA" id="4nh-qV-t78"/>
+                        <outlet property="categoryPicker" destination="ya3-Li-STA" id="4nh-qV-t78"/>
                         <outlet property="countryPicker" destination="qoI-4a-b97" id="Pai-Sk-eKw"/>
                     </connections>
                 </viewController>

@@ -1,5 +1,5 @@
 //
-//  CountrySettingsViewController.swift
+//  NewsSettingsViewController.swift
 //  TestTask
 //
 //  Created by Stanislav Teslenko on 13.04.2021.
