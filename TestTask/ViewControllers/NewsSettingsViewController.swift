@@ -51,6 +51,8 @@ class NewsSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
         
     }
     
+    // MARK: - UIPickerViewDataSource
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -63,6 +65,8 @@ class NewsSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
             return categoryArray.count
         }
     }
+    
+    // MARK: - UIPickerViewDelegate
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
@@ -74,6 +78,7 @@ class NewsSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
         
     }
     
+    // MARK: - Actions
     
     @IBAction func doneButtonAction(_ sender: UIButton) {
         

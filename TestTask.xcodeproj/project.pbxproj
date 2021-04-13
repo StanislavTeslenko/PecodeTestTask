@@ -56,10 +56,6 @@
 		04E05A8D26246F30006A1131 = {
 			isa = PBXGroup;
 			children = (
-				04ED10992625CD15004F57ED /* NewsSettingsViewController.swift */,
-				04ED10832624C000004F57ED /* DataManager.swift */,
-				04E05ACC2624948C006A1131 /* NetworkManager.swift */,
-				04ED108A2624C4A4004F57ED /* ImageManager.swift */,
 				04E05A9826246F30006A1131 /* TestTask */,
 				04E05A9726246F30006A1131 /* Products */,
 			);
@@ -118,6 +114,7 @@
 			children = (
 				04E05A9D26246F31006A1131 /* HotNewsViewController.swift */,
 				04ED109526257D96004F57ED /* DetailsViewController.swift */,
+				04ED10992625CD15004F57ED /* NewsSettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -142,6 +139,9 @@
 		04E05AB726247092006A1131 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				04ED10832624C000004F57ED /* DataManager.swift */,
+				04E05ACC2624948C006A1131 /* NetworkManager.swift */,
+				04ED108A2624C4A4004F57ED /* ImageManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

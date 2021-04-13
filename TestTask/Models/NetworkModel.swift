@@ -7,13 +7,13 @@
 
 import Foundation
 
+// Main network model
 struct HotNewsModel: Codable {
     
     let status: String?
     let totalResults: Int?
     let articles: [Article]?
 }
-
 
 struct Article: Codable {
     

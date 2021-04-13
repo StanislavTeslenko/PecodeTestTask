@@ -9,6 +9,7 @@ import UIKit
 
 class ImageManager {
     
+    // Get image from URL
     func getImage(from imageURL: String?) -> UIImage? {
         guard let stringURL = imageURL else { return nil }
         guard let imageURL = URL(string: stringURL) else { return nil }

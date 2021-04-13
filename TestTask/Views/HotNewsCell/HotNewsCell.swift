@@ -24,10 +24,9 @@ class HotNewsCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    // Configure cell's elements
     func configure(with cellModel: CellModel) {
         
         sourceLabel.text = cellModel.source

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Model for cells in HotNewsViewController
 struct CellModel {
     
     let source: String?

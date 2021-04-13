@@ -9,7 +9,8 @@ import UIKit
 
 class NetworkManager {
     
-    private let APIKey = "9a0f08d7c34f42e387fea43ef812959e"//"d77f58ad0b7544e8bb6bdc47fc6ad937"
+    //Another key - "d77f58ad0b7544e8bb6bdc47fc6ad937"
+    private let APIKey = "9a0f08d7c34f42e387fea43ef812959e"
     
     private var pageNumber: Int = 1
     private var regionCode: String = "us"
@@ -26,15 +27,18 @@ class NetworkManager {
         case nextPage
     }
     
+    // Store request parameters
     func setRequestParameters(country: String, category: String) {
         self.regionCode = country
         self.category = category
     }
     
+    // Get request parameters
     func getRequestParameters() -> (country: String, category: String) {
         return (regionCode, category)
     }
     
+    // Create URL from components
     private func createUrl() -> URL? {
         
         var components = URLComponents()
@@ -53,6 +57,7 @@ class NetworkManager {
         return components.url
     }
     
+    // Send GET network request and decode data
     func loadData(from page: Pages, completion: @escaping (HotNewsModel?) -> ()) {
         
         switch page {
